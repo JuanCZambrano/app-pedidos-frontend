@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonasService } from 'src/app/services/personas.service';
-import { PersonaModel } from 'src/app/models/PersonaModel';
+import { PersonaModel } from 'src/app/models/personaModel';
 
 @Component({
   selector: 'app-persona',
@@ -15,8 +15,8 @@ export class PersonaComponent implements OnInit {
 
   ngOnInit(): void {
     this.personaService.obtenerPersonas().subscribe( data => {
-      //this.listadoPersona.push(data);
-      console.log(data);
+      this.listadoPersona = Object.values(data);
+      console.log(this.listadoPersona);
     })
   }
 
