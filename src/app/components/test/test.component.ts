@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonasService } from 'src/app/services/personas.service';
 import { PersonaModel } from 'src/app/models/personaModel';
+import { PersonasService } from 'src/app/services/personas.service';
 
 @Component({
-  selector: 'app-persona',
-  templateUrl: './persona.component.html',
-  styleUrls: ['./persona.component.scss']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
 })
-export class PersonaComponent implements OnInit {
+export class TestComponent implements OnInit {
 
   persona : PersonaModel;
   listadoPersonas = new Array<PersonaModel>();

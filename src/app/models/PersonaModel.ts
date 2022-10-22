@@ -1,8 +1,8 @@
 export class PersonaModel {
     id : string
-    nombres : string
-    apellidos : string
+    nombre : string
+    apellido : string
     correo : string
     celular : string
-    clave : string
+    password : string
 }

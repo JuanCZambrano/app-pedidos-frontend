@@ -5,12 +5,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PedidoComponent } from './components/pedido/pedido.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { TestComponent } from './components/test/test.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'persona', component: PersonaComponent },
   { path: 'pedido', component: PedidoComponent },
   { path: 'producto', component: ProductoComponent },
+  { path: 'test', component: TestComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

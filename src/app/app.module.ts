@@ -10,6 +10,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     PersonaComponent,
     PedidoComponent,
     ProductoComponent,
-    PageNotFoundComponent    
+    PageNotFoundComponent,
+    TestComponent    
   ],
   imports: [
     BrowserModule,
