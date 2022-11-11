@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './components/test/test.component';
+import { FormularioComponent } from './components/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TestComponent } from './components/test/test.component';
     PedidoComponent,
     ProductoComponent,
     PageNotFoundComponent,
-    TestComponent    
+    TestComponent,
+    FormularioComponent    
   ],
   imports: [
     BrowserModule,

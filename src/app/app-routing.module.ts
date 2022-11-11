@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormularioComponent } from './components/formulario/formulario.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PedidoComponent } from './components/pedido/pedido.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'pedido', component: PedidoComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'test', component: TestComponent },
+  { path: 'formulario', component: FormularioComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
