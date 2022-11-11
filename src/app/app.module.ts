@@ -11,6 +11,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './components/test/test.component';
+import { NavBarComponent } from './plantilla/nav-bar/nav-bar.component';
+import { FooterComponent } from './plantilla/footer/footer.component';
+import { HeaderComponent } from './plantilla/header/header.component';
+import { IndexComponent } from './plantilla/index/index.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 
 @NgModule({
@@ -21,8 +25,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     PedidoComponent,
     ProductoComponent,
     PageNotFoundComponent,
-    TestComponent,
-    FormularioComponent    
+    TestComponent    
   ],
   imports: [
     BrowserModule,
