@@ -11,6 +11,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './components/test/test.component';
+import { NavBarComponent } from './plantilla/nav-bar/nav-bar.component';
+import { FooterComponent } from './plantilla/footer/footer.component';
+import { HeaderComponent } from './plantilla/header/header.component';
+import { IndexComponent } from './plantilla/index/index.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { TestComponent } from './components/test/test.component';
     PedidoComponent,
     ProductoComponent,
     PageNotFoundComponent,
-    TestComponent    
+    TestComponent,
+    NavBarComponent,
+    FooterComponent,
+    HeaderComponent,
+    IndexComponent    
   ],
   imports: [
     BrowserModule,

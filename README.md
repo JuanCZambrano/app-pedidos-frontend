@@ -25,3 +25,39 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Modularización
+
+ng generate module modulos/seguridad --routing
+ng generate module modulos/administracion --routing
+ng generate module modulos/pedidos --routing
+
+## Componentes
+
+ng generate component modulos/seguridad/login
+ng generate component modulos/seguridad/cambiarPassword
+ng generate component modulos/seguridad/recuperarPassword
+ng generate component modulos/seguridad/cerrar-session
+
+ng generate component modulos/administracion/personas/create
+ng generate component modulos/administracion/personas/edit
+ng generate component modulos/administracion/personas/delete
+ng generate component modulos/administracion/personas/find
+
+ng generate component modulos/administracion/productos/create-product
+ng generate component modulos/administracion/productos/edit-product
+ng generate component modulos/administracion/productos/delete-product
+ng generate component modulos/administracion/productos/find-product
+
+ng generate component modulos/pedidos/assign
+
+## Plantilla
+
+ng generate component plantilla/navBar
+ng generate component plantilla/footer
+ng generate component plantilla/header
+ng generate component plantilla/index
+
+## Routing
+
+El routing se hace por modulo y en el modulo principal se asocian las demas rutas de los demas modulo utilizando estrategia lazy loading
