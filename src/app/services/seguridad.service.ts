@@ -15,8 +15,14 @@ export class SeguridadService {
     this.validarSession();
   }
 
-  login(){
-    return this.http.get(this.url, {headers: {'Content-Type': 'application/json'}});
+  login(email : string, password : string){
+
+    let datos = { 
+                "correo": email,  
+                "password": password 
+              };
+
+    return this.http.post(this.url, datos , {headers: {'Content-Type': 'application/json'}} );
   }
 
   cerrarSession(){

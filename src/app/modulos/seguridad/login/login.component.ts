@@ -29,17 +29,24 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    alert("Procesando")
-    //Consumir servicio
-    //Almacenar en localstorage
     
-    this.seguridadService.almacenar("token", "testing")
-    this.seguridadService.validarSession();
+    let email = this.formulario.controls["email"].value;
+    let password = this.formulario.controls["password"].value;
 
-    setTimeout( () => {
-      this.router.navigate(['/pedidos/realizar-pedido'])
-    }, 3000)
-    //Redirecionar al home dependiendo del rol
+    this.seguridadService.login(email, password).subscribe( data => {
+      let datos = Object.values(data);
+      
+      //Almacenar el token
+      this.seguridadService.almacenar("token", datos[1]);
+      this.seguridadService.validarSession();
+
+      setTimeout( () => {
+        this.router.navigate(['/pedidos/realizar-pedido'])
+      }, 3000)
+
+    }, error => {
+      alert(error.status + ' : ' + error.statusText);
+    });    
 
   }
 

@@ -25,7 +25,12 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     PedidoComponent,
     ProductoComponent,
     PageNotFoundComponent,
-    TestComponent    
+    TestComponent,
+    NavBarComponent,
+    FooterComponent,
+    HeaderComponent,
+    IndexComponent,
+    FormularioComponent    
   ],
   imports: [
     BrowserModule,
