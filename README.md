@@ -28,12 +28,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Modularización
 
+```
 ng generate module modulos/seguridad --routing
 ng generate module modulos/administracion --routing
 ng generate module modulos/pedidos --routing
+```
 
 ## Componentes
 
+```
 ng generate component modulos/seguridad/login
 ng generate component modulos/seguridad/cambiarPassword
 ng generate component modulos/seguridad/recuperarPassword
@@ -50,13 +53,16 @@ ng generate component modulos/administracion/productos/delete-product
 ng generate component modulos/administracion/productos/find-product
 
 ng generate component modulos/pedidos/assign
+```
 
 ## Plantilla
 
+```
 ng generate component plantilla/navBar
 ng generate component plantilla/footer
 ng generate component plantilla/header
 ng generate component plantilla/index
+```
 
 ## Routing
 
