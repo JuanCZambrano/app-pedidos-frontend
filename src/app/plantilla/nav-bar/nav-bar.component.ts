@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { EventService } from 'src/app/services/event.service';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 import { LogoComponent } from '../logo/logo.component';
 
@@ -17,13 +18,21 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
   subscripcionSession = new Subscription();
   mensajeHijo : string;
 
-  constructor( private seguridadService : SeguridadService ) { }
+  menus : string = "";
+
+  constructor( private seguridadService : SeguridadService,
+              private eventService: EventService ) { }
 
   ngOnInit(): void {
     
     this.subscripcionSession = this.seguridadService.sessionUsuarioObservable().subscribe( data => {
       this.sessionIniciada = data;
     })
+
+    this.eventService.MenusEvent.subscribe( data => {
+      console.log(data);
+      this.menus = data;
+    });
 
   }
 

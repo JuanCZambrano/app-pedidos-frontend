@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EventService } from 'src/app/services/event.service';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb : FormBuilder, 
     private seguridadService : SeguridadService,
-    private router : Router ) { 
+    private router : Router,
+    private eventService : EventService ) { 
 
     this.formulario = fb.group({
       email: ['', [Validators.required, Validators.email, Validators.minLength(8), Validators.maxLength(100) ] ],
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
 
       setTimeout( () => {
         this.router.navigate(['/pedidos/realizar-pedido'])
+        this.eventService.MenusEvent.emit("Menus enviados")
       }, 3000)
 
     }, error => {
