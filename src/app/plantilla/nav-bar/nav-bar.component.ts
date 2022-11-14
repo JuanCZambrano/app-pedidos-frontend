@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 import { LogoComponent } from '../logo/logo.component';
@@ -8,7 +8,7 @@ import { LogoComponent } from '../logo/logo.component';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, AfterViewInit  {
 
   @Input() nombreMenu: string;
   @ViewChild(LogoComponent) logo : any;
