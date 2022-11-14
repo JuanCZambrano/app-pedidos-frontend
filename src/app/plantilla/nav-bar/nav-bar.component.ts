@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 
@@ -9,6 +9,8 @@ import { SeguridadService } from 'src/app/services/seguridad.service';
 })
 export class NavBarComponent implements OnInit {
 
+  @Input() nombreMenu: string;
+  
   sessionIniciada = false;
   subscripcionSession = new Subscription();
 
