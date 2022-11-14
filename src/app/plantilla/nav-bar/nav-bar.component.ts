@@ -36,4 +36,8 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
     this.mensajeHijo = this.logo.mensaje;
   }
 
+  obtenerMensaje(mensaje : any){
+    alert(mensaje)
+  }
+
 }

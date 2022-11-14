@@ -15,6 +15,7 @@ import { FooterComponent } from './plantilla/footer/footer.component';
 import { HeaderComponent } from './plantilla/header/header.component';
 import { IndexComponent } from './plantilla/index/index.component';
 import { LogoComponent } from './plantilla/logo/logo.component';
+import { LogoAltComponent } from './plantilla/logo-alt/logo-alt.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LogoComponent } from './plantilla/logo/logo.component';
     HeaderComponent,
     IndexComponent,
     LogoComponent,
+    LogoAltComponent,
   ],
   imports: [
     BrowserModule,
