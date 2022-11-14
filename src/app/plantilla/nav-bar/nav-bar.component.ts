@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SeguridadService } from 'src/app/services/seguridad.service';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,9 +11,11 @@ import { SeguridadService } from 'src/app/services/seguridad.service';
 export class NavBarComponent implements OnInit {
 
   @Input() nombreMenu: string;
+  @ViewChild(LogoComponent) logo : any;
   
   sessionIniciada = false;
   subscripcionSession = new Subscription();
+  mensajeHijo : string;
 
   constructor( private seguridadService : SeguridadService ) { }
 
@@ -22,6 +25,15 @@ export class NavBarComponent implements OnInit {
       this.sessionIniciada = data;
     })
 
+  }
+
+  //Capturar mensaje del hijo
+  ngAfterViewInit() {
+    this.mensajeHijo = this.logo.mensaje;
+  }
+
+  revisarHijo(){
+    this.mensajeHijo = this.logo.mensaje;
   }
 
 }

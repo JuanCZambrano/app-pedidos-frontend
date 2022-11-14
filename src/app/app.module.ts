@@ -14,6 +14,7 @@ import { NavBarComponent } from './plantilla/nav-bar/nav-bar.component';
 import { FooterComponent } from './plantilla/footer/footer.component';
 import { HeaderComponent } from './plantilla/header/header.component';
 import { IndexComponent } from './plantilla/index/index.component';
+import { LogoComponent } from './plantilla/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { IndexComponent } from './plantilla/index/index.component';
     FooterComponent,
     HeaderComponent,
     IndexComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
