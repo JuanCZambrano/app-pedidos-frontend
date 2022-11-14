@@ -11,6 +11,7 @@ export class PersonaComponent implements OnInit {
 
   persona : PersonaModel;
   listadoPersonas = new Array<PersonaModel>();
+  titulo = 'Formulario de registro';
 
   constructor(private personaService : PersonasService) { 
     this.persona = new PersonaModel();
@@ -33,6 +34,13 @@ export class PersonaComponent implements OnInit {
     persona.password = this.persona.password;
 
     this.listadoPersonas.push(persona);
+
+    this.personaService.registrarPersona(persona).subscribe( response =>{
+
+      this.listadoPersonas.push(persona);
+
+    });
+
   }
 
 }

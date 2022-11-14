@@ -7,9 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SeguridadService {
 
-  url = "http://localhost:3001/login";
+  url = "http://localhost:3001/";
   sessionIniciada = new BehaviorSubject<boolean>(false);
-  session = "token";
+  token = "token";
 
   constructor(private http : HttpClient) { 
     this.validarSession();
@@ -22,11 +22,30 @@ export class SeguridadService {
                 "password": password 
               };
 
-    return this.http.post(this.url, datos , {headers: {'Content-Type': 'application/json'}} );
+    return this.http.post(this.url + 'login', datos , {headers: {'Content-Type': 'application/json'}} );
+  }
+
+  enviarMail(){
+
+    let datos = {
+      "to": "string",
+      "subject": "string",
+      "message": "string"
+    }
+
+    let token = localStorage.getItem(this.token);
+
+    return this.http.post( this.url + 'enviarMail', datos, { headers : { 'Content-type' : 'application/json', 'Authorization' : 'Bearer '+ token } } );
+
+  }
+
+  crearSession( token : string){
+    localStorage.setItem(this.token, token);
+    this.sessionIniciada.next(true);
   }
 
   cerrarSession(){
-    localStorage.removeItem(this.session);
+    localStorage.removeItem(this.token);
     this.sessionIniciada.next(false);
   }
 
@@ -50,7 +69,7 @@ export class SeguridadService {
   }
 
   validarSession(){
-    if( this.obtener(this.session) ){
+    if( this.obtener(this.token) ){
       this.sessionIniciada.next(true);
     }
   }

@@ -37,15 +37,23 @@ export class LoginComponent implements OnInit {
       let datos = Object.values(data);
       
       //Almacenar el token
-      this.seguridadService.almacenar("token", datos[1]);
-      this.seguridadService.validarSession();
+      this.seguridadService.crearSession(datos[1]);
 
       setTimeout( () => {
         this.router.navigate(['/pedidos/realizar-pedido'])
       }, 3000)
 
     }, error => {
-      alert(error.status + ' : ' + error.statusText);
+      switch(error.status){
+        case 401:
+            alert("Usuario o password no son validos");
+            break;
+        case 402:
+            alert("No tiene permiso");
+            break;
+        default:
+            alert("Error no conocido");
+      }
     });    
 
   }

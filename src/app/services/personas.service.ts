@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PersonaModel } from '../models/personaModel';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class PersonasService {
 
   obtenerPersonas(){
     return this.http.get(this.url, {headers: {'Content-Type': 'application/json'}});
+  }
+
+  registrarPersona(persona : PersonaModel){
+    return this.http.post(this.url, persona);
   }
   
 }

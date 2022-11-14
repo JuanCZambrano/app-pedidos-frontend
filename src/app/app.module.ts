@@ -10,12 +10,10 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TestComponent } from './components/test/test.component';
 import { NavBarComponent } from './plantilla/nav-bar/nav-bar.component';
 import { FooterComponent } from './plantilla/footer/footer.component';
 import { HeaderComponent } from './plantilla/header/header.component';
 import { IndexComponent } from './plantilla/index/index.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +23,10 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     PedidoComponent,
     ProductoComponent,
     PageNotFoundComponent,
-    TestComponent,
     NavBarComponent,
     FooterComponent,
     HeaderComponent,
     IndexComponent,
-    FormularioComponent    
   ],
   imports: [
     BrowserModule,
