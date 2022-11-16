@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
     this.formulario = fb.group({
       email: ['', [Validators.required, Validators.email, Validators.minLength(8), Validators.maxLength(100) ] ],
-      password: ['', [Validators.required, Validators.minLength(8)] ]
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)] ]
     });
 
   }

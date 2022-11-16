@@ -5,12 +5,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PedidoComponent } from './components/pedido/pedido.component';
 import { PersonaComponent } from './components/persona/persona.component';
 import { ProductoComponent } from './components/producto/producto.component';
+import { ValidadorSesionGuard } from './guardianes/validador-sesion.guard';
 import { IndexComponent } from './plantilla/index/index.component';
 
 const routes: Routes = [
   { path: 'inicio', component: IndexComponent },
   { path: '', pathMatch: 'full', redirectTo: '/inicio' },
-  { path: 'persona', component: PersonaComponent },
+  { path: 'persona', component: PersonaComponent, canActivate : [ValidadorSesionGuard] },
   { path: 'pedido', component: PedidoComponent },
   { path: 'producto', component: ProductoComponent },
   { path: 'seguridad', loadChildren : () => import("./modulos/seguridad/seguridad.module").then( x => x.SeguridadModule ) },

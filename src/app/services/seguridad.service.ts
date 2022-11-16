@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeguridadService {
 
-  url = "http://localhost:3001/";
+  url = environment.urlBackend;
   sessionIniciada = new BehaviorSubject<boolean>(false);
-  token = "token";
+  token = environment.tokenName;
 
   constructor(private http : HttpClient) { 
     this.validarSession();
@@ -22,20 +23,20 @@ export class SeguridadService {
                 "password": password 
               };
 
-    return this.http.post(this.url + 'login', datos , {headers: {'Content-Type': 'application/json'}} );
+    return this.http.post(this.url + '/login', datos , {headers: {'Content-Type': 'application/json'}} );
   }
 
-  enviarMail(){
+  enviarMail( to : string, subject : string, message : string){
 
     let datos = {
-      "to": "string",
-      "subject": "string",
-      "message": "string"
+      "to": to,
+      "subject": subject,
+      "message": message
     }
 
     let token = localStorage.getItem(this.token);
 
-    return this.http.post( this.url + 'enviarMail', datos, { headers : { 'Content-type' : 'application/json', 'Authorization' : 'Bearer '+ token } } );
+    return this.http.post( this.url + '/enviarMail', datos, { headers : { 'Content-type' : 'application/json', 'Authorization' : 'Bearer '+ token } } );
 
   }
 
@@ -49,33 +50,41 @@ export class SeguridadService {
     this.sessionIniciada.next(false);
   }
 
-  almacenar(llave: string, valor : string){
-    localStorage.setItem(llave, valor);
-  }
-
-  almacenarJson(llave: string, valor : any){
-    localStorage.setItem(llave, JSON.stringify(valor));
-  }
-
-  obtener(llave: string){
-    return localStorage.getItem(llave);
-  }
-
-  obtenerJson(llave: string){
-    let obj = localStorage.getItem(llave);
-    if (obj)
-      return JSON.parse( obj );
-    return null;    
+  obtenerSession(){
+    return localStorage.getItem(this.token);
   }
 
   validarSession(){
-    if( this.obtener(this.token) ){
+    if( this.obtenerSession() ){
       this.sessionIniciada.next(true);
     }
   }
 
   sessionUsuarioObservable(){
     return this.sessionIniciada.asObservable();
+  }
+
+  AddLocalData(key: string, value : string){
+    localStorage.setItem(key, value);
+  }
+
+  AddLocalDataJson(key: string, value : any){
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  GetLocalData(key: string){
+    return localStorage.getItem(key);
+  }
+
+  GetLocalDataJson(key: string){
+    let obj = localStorage.getItem(key);
+    if (obj)
+      return JSON.parse( obj );
+    return null;    
+  }
+
+  DeleteLocalData(key: string){
+    localStorage.removeItem(key)
   }
 
 }

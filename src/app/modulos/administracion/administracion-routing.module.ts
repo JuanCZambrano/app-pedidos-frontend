@@ -11,8 +11,8 @@ import { FindProductComponent } from './productos/find-product/find-product.comp
 
 const routes: Routes = [
   { path: 'persona-create', component: CreateComponent },
-  { path: 'persona-delete', component: DeleteComponent },
-  { path: 'persona-edit', component: EditComponent },
+  { path: 'persona-delete/:id', component: DeleteComponent },
+  { path: 'persona-edit/:id', component: EditComponent },
   { path: 'persona-find', component: FindComponent },
   { path: 'producto-create', component: CreateProductComponent },
   { path: 'producto-delete', component: DeleteProductComponent },

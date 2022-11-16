@@ -47,7 +47,7 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
   }
 
   obtenerMensaje(mensaje : any){
-    alert(mensaje)
+    console.log(mensaje)
   }
 
 }

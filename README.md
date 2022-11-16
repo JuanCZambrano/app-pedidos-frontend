@@ -67,3 +67,14 @@ ng generate component plantilla/index
 ## Routing
 
 El routing se hace por modulo y en el modulo principal se asocian las demas rutas de los demas modulo utilizando estrategia lazy loading
+
+## Guardians
+
+```
+ng generate guard guardianes/validadorSesion
+```
+Proteger las rutas en modulos 
+
+```
+canActivate : [ValidadorSesionGuard]
+```

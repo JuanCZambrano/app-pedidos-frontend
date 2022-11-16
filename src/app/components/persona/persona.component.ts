@@ -33,6 +33,8 @@ export class PersonaComponent implements OnInit {
     persona.celular = this.persona.celular;
     persona.password = this.persona.password;
 
+    //Validación de datos - Utilizar formularios reactivos
+    
     this.listadoPersonas.push(persona);
 
     this.personaService.registrarPersona(persona).subscribe( response =>{
