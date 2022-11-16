@@ -1,0 +1,15 @@
+<h3>Home component Padre - Hijo</h3>
+<app-header [menu1]="mensajeMenu1" [menu2]="mensajeMenu2" [listadoMenus]="listadoMenus" (mensajeEmit)="recibirMensaje($event)" ></app-header>
+<div class="row">
+    <div class="col-8">
+        <div class="form-group">
+          <label for=""></label>
+          <input type="text" class="form-control" (blur)="enviarMensaje($event)" placeholder="Digite el nombre del menu">
+        </div>
+        <h3>{{ mensajeRecibido }}</h3>
+    </div>
+    <div class="col-4">
+        <app-body></app-body>
+    </div>
+</div>
+<app-footer></app-footer>

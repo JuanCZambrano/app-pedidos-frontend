@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SeguridadService } from 'src/app/services/seguridad.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  subscripcionSession = new Subscription();
+  sessionIniciada = false;
+  
+  constructor(private seguridadService : SeguridadService) { 
+    this.subscripcionSession = this.seguridadService.sessionUsuarioObservable().subscribe( data => {
+      this.sessionIniciada = data;
+    })
+  }
 
   ngOnInit(): void {
+
   }
 
 }

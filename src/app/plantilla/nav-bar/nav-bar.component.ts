@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { MenuModel } from 'src/app/models/menuModel';
 import { EventService } from 'src/app/services/event.service';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 import { LogoComponent } from '../logo/logo.component';
@@ -19,6 +20,7 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
   mensajeHijo : string;
 
   menus : string = "";
+  listadoMenus = new Array<MenuModel>();
 
   constructor( private seguridadService : SeguridadService,
               private eventService: EventService ) { }
@@ -29,9 +31,8 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
       this.sessionIniciada = data;
     })
 
-    this.eventService.MenusEvent.subscribe( data => {
-      console.log(data);
-      this.menus = data;
+    this.eventService.ListadoMenusEvent.subscribe( menus => {
+      this.listadoMenus = menus;
     });
 
   }

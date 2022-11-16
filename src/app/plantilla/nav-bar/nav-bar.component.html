@@ -12,18 +12,9 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="">{{ nombreMenu }}</a>
         </li>
-        <li *ngIf="sessionIniciada" class="nav-item">
-          <a class="nav-link" routerLink="/administracion/personas">Gestión personas</a>
+        <li class="nav-item active" *ngFor="let menu of listadoMenus">
+          <a class="nav-link" routerLink="{{ menu.path }}">{{ menu.nombre }}</a>
         </li>
-        <li *ngIf="sessionIniciada" class="nav-item">
-          <a class="nav-link" routerLink="/administracion/productos">Gestión productos</a>
-        </li>        
-        <li *ngIf="sessionIniciada" class="nav-item">
-          <a class="nav-link" routerLink="/pedidos/realizar-pedido">Gestión pedidos</a>
-        </li>
-        <li *ngIf="sessionIniciada" class="nav-item">
-            <a class="nav-link" routerLink="/seguridad/cerrar-session">Cerrar Sesión</a>
-          </li>
         <li *ngIf="!sessionIniciada" class="nav-item">
           <a class="nav-link" routerLink="/seguridad/login">Iniciar Sesión</a>
         </li>        
