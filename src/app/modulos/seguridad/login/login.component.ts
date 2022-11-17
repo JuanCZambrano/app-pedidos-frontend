@@ -42,8 +42,10 @@ export class LoginComponent implements OnInit {
       //Almacenar el token
       this.seguridadService.crearSession(datos[1]);
 
+      this.eventService.controlSessionEvent.emit(true);
+      
       setTimeout( () => {
-        this.router.navigate(['/pedidos/realizar-pedido'])
+        this.router.navigate(['/persona'])
         this.generarMenus( 'admin' );        
       }, 3000)
 
@@ -74,6 +76,10 @@ export class LoginComponent implements OnInit {
         menus.push( { "nombre" : "Gestión pedidos", "path" : "/pedidos/realizar-pedido" } );
         menus.push( { "nombre" : "Cerrar sesión", "path" : "/seguridad/cerrar-session" } );
         break;
+      case 'auxiliar':
+          menus.push( { "nombre" : "Gestión impresoras", "path" : "/administracion/impresoras" } );
+          menus.push( { "nombre" : "Gestión clientes", "path" : "/administracion/clientes" } );
+          break;
       default :
         break;
     }

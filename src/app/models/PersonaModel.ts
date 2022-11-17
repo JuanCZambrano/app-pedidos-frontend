@@ -5,4 +5,5 @@ export class PersonaModel {
     correo : string
     celular : string
     password : string
+    genero : string
 }

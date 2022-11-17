@@ -8,6 +8,7 @@ export class EventService {
 
   NombreMenuEvent = new EventEmitter<string>();
   ListadoMenusEvent = new EventEmitter<MenuModel[]>();
+  controlSessionEvent = new EventEmitter<boolean>(false);
 
   constructor() { }
 }

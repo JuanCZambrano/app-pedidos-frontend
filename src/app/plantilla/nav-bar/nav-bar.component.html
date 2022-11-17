@@ -6,15 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li *ngIf="sessionIniciada" class="nav-item active">
           <a class="nav-link" routerLink="" (click)="revisarHijo()">{{ mensajeHijo }}</a>
         </li>
-        <li class="nav-item active">
+        <li *ngIf="sessionIniciada" class="nav-item active">
           <a class="nav-link" routerLink="">{{ nombreMenu }}</a>
         </li>
-        <li class="nav-item active" *ngFor="let menu of listadoMenus">
-          <a class="nav-link" routerLink="{{ menu.path }}">{{ menu.nombre }}</a>
-        </li>
+        <div *ngIf="sessionIniciada">
+          <li class="nav-item active" *ngFor="let menu of listadoMenus">
+            <a class="nav-link" routerLink="{{ menu.path }}">{{ menu.nombre }}</a>
+          </li>
+        </div>        
         <li *ngIf="!sessionIniciada" class="nav-item">
           <a class="nav-link" routerLink="/seguridad/login">Iniciar Sesión</a>
         </li>        

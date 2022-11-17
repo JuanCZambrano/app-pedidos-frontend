@@ -12,6 +12,9 @@ export class PersonaComponent implements OnInit {
   persona : PersonaModel;
   listadoPersonas = new Array<PersonaModel>();
   titulo = 'Formulario de registro';
+  listadoGenero = [ { "value" : "F", "text" : "Femenino" },
+                    { "value" : "M", "text" : "Masculino" },
+                    { "value" : "X", "text" : "No definido" } ];
 
   constructor(private personaService : PersonasService) { 
     this.persona = new PersonaModel();

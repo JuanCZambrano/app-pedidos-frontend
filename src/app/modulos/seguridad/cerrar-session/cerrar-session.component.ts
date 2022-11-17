@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventService } from 'src/app/services/event.service';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { SeguridadService } from 'src/app/services/seguridad.service';
 export class CerrarSessionComponent implements OnInit {
 
   constructor(private seguridadService : SeguridadService,
-    private router : Router ) { }
+    private router : Router,
+    private eventService : EventService ) { }
 
   ngOnInit(): void {
-    this.seguridadService.cerrarSession();
+    //this.seguridadService.cerrarSession();
+    this.eventService.controlSessionEvent.emit(false);
     this.router.navigate(['']);
   }
 

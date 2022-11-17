@@ -16,7 +16,6 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
   @ViewChild(LogoComponent) logo : any;
   
   sessionIniciada = false;
-  subscripcionSession = new Subscription();
   mensajeHijo : string;
 
   menus : string = "";
@@ -27,10 +26,16 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
 
   ngOnInit(): void {
     
-    this.subscripcionSession = this.seguridadService.sessionUsuarioObservable().subscribe( data => {
+    /*
+    this.seguridadService.sessionUsuarioObservable().subscribe( data => {
       this.sessionIniciada = data;
-    })
+    })*/
 
+    this.eventService.controlSessionEvent.subscribe( data => {
+      this.sessionIniciada = data;
+      console.log(this.sessionIniciada)
+    });
+    
     this.eventService.ListadoMenusEvent.subscribe( menus => {
       this.listadoMenus = menus;
     });

@@ -18,7 +18,7 @@ export class ValidadorSesionGuard implements CanActivate {
     if( this.seguridadService.obtenerSession() ){
       return true;
     }else{
-      this.router.navigate(['']);
+      this.router.navigate(['/seguridad/login']);
       return false;
     }
 

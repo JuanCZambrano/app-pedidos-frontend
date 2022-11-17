@@ -60,6 +60,19 @@ export class SeguridadService {
     }
   }
 
+  validarToken(){
+    let session = this.obtenerSession();
+    if( session ){
+      //Conectarnos a backend para el validar el token
+      return this.http.post(this.url + '/validarToken', session , {headers: {'Content-Type': 'application/json'}} ).subscribe( data => {
+        return data;
+      });
+      
+    }else{
+      return false;
+    }
+  }
+
   sessionUsuarioObservable(){
     return this.sessionIniciada.asObservable();
   }

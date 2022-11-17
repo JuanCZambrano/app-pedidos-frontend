@@ -22,6 +22,12 @@
                   <input type="text" class="form-control" [(ngModel)]="persona.celular" name="persona.celular" placeholder="Digite su número de celular">
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputPassword1">Genero</label>
+                  <select class="form-control" placeholder="Seleccione un genero" [(ngModel)]="persona.genero" name="persona.genero">
+                    <option *ngFor="let genero of listadoGenero" value="{{ genero.value }}">{{ genero.text }}</option>                    
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
                   <input type="password" class="form-control" [(ngModel)]="persona.password" name="persona.password" placeholder="Digite su password">
                 </div>
@@ -61,6 +67,7 @@
               </table>
 
             </div>
+            <br><br><br>
 
         </div>
         <div class="col-2"></div>
