@@ -83,4 +83,24 @@ export class CreateComponent implements OnInit {
 
   }
 
+  busqueda($event : any){
+    let data = $event.target.value;
+
+    this.personaService.obtenerByEmail(data).subscribe( persona => {
+      if( persona == null){
+        alert("El correo no existe y se puede utilizar")
+      }else{
+        alert("El correo pertenece a otro usuario, cambielo");
+        this.formulario.controls["email"].setValue("");
+      }
+    });
+  }
+
+  busquedaListado($event : any){
+    let data = $event.target.value;
+    let resultado = this.listadoPersonas.filter( x => x.correo.includes(data) || x.nombre.includes(data) );
+
+    console.log(resultado)
+  }
+
 }
