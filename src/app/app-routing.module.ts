@@ -11,8 +11,8 @@ import { IndexComponent } from './plantilla/index/index.component';
 const routes: Routes = [
   { path: 'inicio', component: IndexComponent },
   { path: '', pathMatch: 'full', redirectTo: '/inicio' },
-  { path: 'persona', component: PersonaComponent, canActivate : [ValidadorSesionGuard] },
-  { path: 'pedido', component: PedidoComponent },
+  { path: 'persona', component: PersonaComponent, canActivate: [ValidadorSesionGuard] },
+  { path: 'pedido', component: PedidoComponent, canActivate: [ValidadorSesionGuard] },
   { path: 'producto', component: ProductoComponent },
   { path: 'seguridad', loadChildren : () => import("./modulos/seguridad/seguridad.module").then( x => x.SeguridadModule ) },
   { path: 'administracion', loadChildren : () => import("./modulos/administracion/administracion.module").then( x => x.AdministracionModule ) },

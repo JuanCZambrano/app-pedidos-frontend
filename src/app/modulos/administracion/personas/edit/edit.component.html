@@ -1,3 +1,38 @@
-<p>{{ id }}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h4>{{ titulo }}</h4>
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.nombre" name="persona.nombre" placeholder="Digite su nombre" >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Apellido</label>
+                  <input type="text" class="form-control" [(ngModel)]="persona.apellido" name="persona.apellido" placeholder="Digite su apellido">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Correo</label>
+                  <input type="email" class="form-control" [(ngModel)]="persona.correo" name="persona.correo" placeholder="Digite su correo electronico">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Celular</label>
+                  <input type="number" class="form-control" [(ngModel)]="persona.celular" name="persona.celular" placeholder="Digite su número de celular">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" [(ngModel)]="persona.password" name="persona.password" placeholder="Digite su password" readonly>
+                </div>
+                <br>
+                <button type="button" class="btn btn-primary" (click)="actualizar()" >Actualizar</button>
+                &nbsp;&nbsp;
+                <a routerLink="/persona" class="btn btn-success" >Retornar</a>
+            </form>
+            <br><br><br>
 
-<a routerLink="/persona" class="btn btn-primary" >Retornar</a>
+        </div>
+        <div class="col-2"></div>
+
+    </div>
+</div>

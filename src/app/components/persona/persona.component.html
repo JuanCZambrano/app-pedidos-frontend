@@ -8,7 +8,6 @@
                   <label for="exampleInputEmail1">Nombre</label>
                   <input type="text" class="form-control" [(ngModel)]="persona.nombre" name="persona.nombre" placeholder="Digite su nombre" >
                 </div>
-                <br>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Apellido</label>
                   <input type="text" class="form-control" [(ngModel)]="persona.apellido" name="persona.apellido" placeholder="Digite su apellido">
@@ -19,13 +18,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Celular</label>
-                  <input type="text" class="form-control" [(ngModel)]="persona.celular" name="persona.celular" placeholder="Digite su número de celular">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Genero</label>
-                  <select class="form-control" placeholder="Seleccione un genero" [(ngModel)]="persona.genero" name="persona.genero">
-                    <option *ngFor="let genero of listadoGenero" value="{{ genero.value }}">{{ genero.text }}</option>                    
-                  </select>
+                  <input type="number" class="form-control" [(ngModel)]="persona.celular" name="persona.celular" placeholder="Digite su número de celular">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
@@ -60,7 +53,7 @@
                     <td>{{ persona.password }}</td>
                     <td>
                       <a routerLink="/administracion/persona-edit/{{ persona.id }}" class="btn btn-success" >Editar</a>
-                      <a routerLink="/administracion/persona-delete/{{ persona.id }}" class="btn btn-danger">Eliminar</a>
+                      <a (click)="eliminar(persona.id)" class="btn btn-danger">Eliminar</a>
                     </td>
                   </tr>                  
                 </tbody>

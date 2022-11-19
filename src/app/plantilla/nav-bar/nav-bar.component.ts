@@ -35,7 +35,7 @@ export class NavBarComponent implements OnInit, AfterViewInit  {
       this.sessionIniciada = data;
       console.log(this.sessionIniciada)
     });
-    
+        
     this.eventService.ListadoMenusEvent.subscribe( menus => {
       this.listadoMenus = menus;
     });

@@ -50,6 +50,10 @@ export class SeguridadService {
     this.sessionIniciada.next(false);
   }
 
+  eliminarSession(){
+    localStorage.removeItem(this.token);
+  }
+
   obtenerSession(){
     return localStorage.getItem(this.token);
   }
