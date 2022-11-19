@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.eventService.controlSessionEvent.emit(true);
       
       setTimeout( () => {
-        this.router.navigate(['/persona'])
+        this.router.navigate(['/administracion/persona-create'])
         this.generarMenus( 'admin' );        
       }, 3000)
 

@@ -3,31 +3,31 @@
         <div class="col-2"></div>
         <div class="col-8">
             <h4>{{ titulo }}</h4>
-            <form>
+            <form [formGroup]="formulario">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nombre</label>
-                  <input type="text" class="form-control" [(ngModel)]="persona.nombre" name="persona.nombre" placeholder="Digite su nombre" >
+                  <input type="text" class="form-control" formControlName="nombre" placeholder="Digite su nombre" >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Apellido</label>
-                  <input type="text" class="form-control" [(ngModel)]="persona.apellido" name="persona.apellido" placeholder="Digite su apellido">
+                  <input type="text" class="form-control" formControlName="apellido" placeholder="Digite su apellido">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Correo</label>
-                  <input type="email" class="form-control" [(ngModel)]="persona.correo" name="persona.correo" placeholder="Digite su correo electronico">
+                  <input type="email" class="form-control" formControlName="email" placeholder="Digite su correo electronico">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Celular</label>
-                  <input type="number" class="form-control" [(ngModel)]="persona.celular" name="persona.celular" placeholder="Digite su número de celular">
+                  <input type="number" class="form-control" formControlName="celular" placeholder="Digite su número de celular">
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="visibility: hidden;" >
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" [(ngModel)]="persona.password" name="persona.password" placeholder="Digite su password" readonly>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Digite su password" readonly>
                 </div>
                 <br>
-                <button type="button" class="btn btn-primary" (click)="actualizar()" >Actualizar</button>
+                <button type="button" [disabled]="formulario.invalid" class="btn btn-primary" (click)="actualizar()" >Actualizar</button>
                 &nbsp;&nbsp;
-                <a routerLink="/persona" class="btn btn-success" >Retornar</a>
+                <a routerLink="/administracion/persona-create" class="btn btn-success" >Retornar</a>
             </form>
             <br><br><br>
 
